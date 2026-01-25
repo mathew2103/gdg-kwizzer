@@ -2,7 +2,7 @@
    LEADERBOARD COMPONENT
    ============================================ */
 
-.leaderboard {
+/* .leaderboard {
   background-color: white;
   backdrop-filter: blur(12px);
   border: 2px solid black;
@@ -136,4 +136,169 @@
   font-weight: 700;
   color: black;
   font-size: 1.125rem;
+} */
+
+/* =========================
+   LEADERBOARD CONTAINER
+   ========================= */
+.leaderboard {
+  width: 320px;
+  background: #eef2f8;
+  border: 2px solid #cfd6e3;
+  border-radius: 16px;
+  padding: 16px;
+  font-family: system-ui, sans-serif;
+}
+
+/* =========================
+   HEADER
+   ========================= */
+.leaderboard-header {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 12px;
+}
+
+.leaderboard-title {
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.leaderboard-live-indicator {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  background: #ff3b3b;
+  border-radius: 50%;
+}
+
+/* =========================
+   TOP 3 GRID LAYOUT
+   ========================= */
+.leaderboard-entries {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* First place centered on its own row */
+.leaderboard-entry:nth-child(1) {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+}
+
+/* Second & third side-by-side */
+.leaderboard-entry:nth-child(2),
+.leaderboard-entry:nth-child(3) {
+  display: flex;
+  justify-content: center;
+}
+
+/* =========================
+   PODIUM STYLING
+   ========================= */
+.leaderboard-entry:nth-child(-n + 3) {
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+  border: none;
+}
+
+/* Stack avatar + name */
+.leaderboard-entry:nth-child(-n + 3) .leaderboard-player-info {
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Avatar circles */
+.leaderboard-rank {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #d9d9d9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+  border: none;
+}
+
+.rank-gold {
+  width: 56px;
+  height: 56px;
+  background: #f4c430;
+}
+
+/* Hide scores on podium */
+.leaderboard-entry:nth-child(-n + 3) .leaderboard-score {
+  display: none;
+}
+
+/* =========================
+   RESULTS (4+)
+   ========================= */
+.leaderboard-entry:nth-child(n + 4) {
+  grid-column: 1 / -1;
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+
+/* player info */
+.leaderboard-player-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.leaderboard-player-name {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* score */
+.leaderboard-score {
+  font-weight: 700;
+}
+
+/* YOU badge */
+.leaderboard-you-badge {
+  margin-left: 6px;
+  font-size: 10px;
+  padding: 2px 6px;
+  background: #4f7cff;
+  color: #fff;
+  border-radius: 6px;
+}
+
+/* current player highlight */
+.current-player {
+  outline: 2px solid #4f7cff;
+}
+
+/* =========================
+   CENTER ON LAPTOP / DESKTOP
+   ========================= */
+@media (min-width: 1024px) {
+  .leaderboard {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
