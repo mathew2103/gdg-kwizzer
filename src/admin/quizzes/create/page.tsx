@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useAuth } from "../../../contexts/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
 import { firestoreService } from "../../../lib/firestore";
-import { Button, Card, Input } from "../../../components/ui";
+import { ArrowLeft } from "lucide-react";
 
 const OPTION_COLORS = [
   "option-red",
@@ -47,7 +47,7 @@ export default function CreateQuizPage() {
   const updateQuestion = (
     qIndex: number,
     field: keyof QuestionData,
-    value: any
+    value: any,
   ) => {
     const updated = [...questions];
     updated[qIndex] = { ...updated[qIndex], [field]: value };
@@ -104,60 +104,77 @@ export default function CreateQuizPage() {
   };
 
   return (
-    <div className="create-quiz-container">
-      <div className="w-full">
-        <h1 className="create-quiz-title">Create Quiz</h1>
+    <div className="create-quiz-page">
+      {/* Back Button */}
+      <Link
+        to="/admin/quizzes"
+        className="create-back-btn"
+        title="Back to Quizzes"
+      >
+        <ArrowLeft size={24} />
+      </Link>
 
+      {/* Header */}
+      <div className="create-quiz-header">
+        <h1 className="create-quiz-title">Create Quiz</h1>
+        <p className="create-quiz-subtitle">Add questions to your quiz</p>
+      </div>
+
+      {/* White Card Container */}
+      <div className="create-quiz-container">
         <form onSubmit={handleSubmit} className="create-quiz-form">
-          <div className="create-quiz-inputs">
-            <Input
+          {/* Quiz Title */}
+          <div className="create-input-group">
+            <label className="create-label">Quiz Title</label>
+            <input
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              placeholder="Quiz Title"
-              className="create-input-field"
+              placeholder="Enter quiz title"
+              className="create-input"
               required
-            />
-            <Input
-              type="text"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              placeholder="Description (optional)"
-              className="create-input-field"
             />
           </div>
 
+          {/* Description */}
+          <div className="create-input-group">
+            <label className="create-label">Description (Optional)</label>
+            <input
+              type="text"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              placeholder="Brief description"
+              className="create-input"
+            />
+          </div>
+
+          {/* Questions */}
           {questions.map((question, qIndex) => (
-            <Card
-              key={qIndex}
-              className="shadow-sm mt-6"
-              variant="default"
-              padding="md"
-            >
+            <div key={qIndex} className="create-question-card">
               <div className="create-question-header">
                 <span className="create-question-label">
                   Question {qIndex + 1}
                 </span>
                 {questions.length > 1 && (
-                  <Button
+                  <button
                     type="button"
-                    size="sm"
-                    variant="ghost"
                     onClick={() => removeQuestion(qIndex)}
+                    className="create-remove-btn"
                   >
-                    Remove
-                  </Button>
+                    ✕
+                  </button>
                 )}
               </div>
+
               <div className="create-question-content">
-                <Input
+                <input
                   type="text"
                   value={question.text}
                   onChange={(e) =>
                     updateQuestion(qIndex, "text", e.target.value)
                   }
                   placeholder="Enter question..."
-                  className="create-question-input"
+                  className="create-input"
                   required
                 />
 
@@ -181,18 +198,19 @@ export default function CreateQuizPage() {
                           {OPTION_LABELS[oIndex]}
                         </span>
                       </div>
-                      <Input
+                      <input
                         type="text"
                         value={option}
                         onChange={(e) =>
                           updateOption(qIndex, oIndex, e.target.value)
                         }
+                        onClick={(e) => e.stopPropagation()}
                         placeholder={`Option ${OPTION_LABELS[oIndex]}`}
                         className="create-option-input"
                         required
                       />
                       {question.correctAnswer === oIndex && (
-                        <span className="create-correct-badge">Correct</span>
+                        <span className="create-correct-badge">✓</span>
                       )}
                     </div>
                   ))}
@@ -200,14 +218,14 @@ export default function CreateQuizPage() {
 
                 <div className="create-time-control">
                   <span className="create-time-label">Time:</span>
-                  <Input
+                  <input
                     type="number"
                     value={question.timeLimit}
                     onChange={(e) =>
                       updateQuestion(
                         qIndex,
                         "timeLimit",
-                        parseInt(e.target.value) || 30
+                        parseInt(e.target.value) || 30,
                       )
                     }
                     min="5"
@@ -217,36 +235,33 @@ export default function CreateQuizPage() {
                   <span className="create-time-label">sec</span>
                 </div>
               </div>
-            </Card>
+            </div>
           ))}
 
-          <div className="create-add-button-container">
-            <Button
-              type="button"
-              onClick={addQuestion}
-              className="create-add-button"
-              variant="ghost"
-            >
-              + Add Question
-            </Button>
-          </div>
+          {/* Add Question Button */}
+          <button
+            type="button"
+            onClick={addQuestion}
+            className="create-add-btn"
+          >
+            + Add Question
+          </button>
 
+          {/* Error Message */}
           {error && <p className="create-error">{error}</p>}
 
+          {/* Action Buttons */}
           <div className="create-button-group">
-            <Link to="/admin/quizzes" className="create-cancel-button">
-              <Button type="button" className="create-cancel-button-inner">
-                Cancel
-              </Button>
+            <Link to="/admin/quizzes" className="create-cancel-btn">
+              Cancel
             </Link>
-            <Button
+            <button
               type="submit"
               disabled={loading}
-              className="create-submit-button"
-              variant="primary"
+              className="create-submit-btn"
             >
               {loading ? "Creating..." : "Create Quiz"}
-            </Button>
+            </button>
           </div>
         </form>
       </div>

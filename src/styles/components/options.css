@@ -1,107 +1,64 @@
 /* ============================================
-   OPTION BUTTON COMPONENT
+   OPTION BUTTON COMPONENT - Figma List Style
    ============================================ */
 
 .option-button {
   position: relative;
   width: 100%;
-  height: 100%;
-  min-height: 100px;
-  padding: 1.5rem;
-  border-radius: var(--radius-lg);
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 1rem;
+  gap: 0.75rem;
   transition: all var(--transition-normal);
-  font-weight: 700;
-  border: 4px solid;
-  box-shadow: var(--shadow-lg);
+  font-weight: 600;
+  border: 2px solid #e0e0e0;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   cursor: pointer;
+  text-align: left;
+}
+
+.option-button:hover:not(:disabled) {
+  border-color: #9b59b6;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(155, 89, 182, 0.2);
+}
+
+.option-button:active:not(:disabled) {
+  transform: translateY(0);
 }
 
 @media (min-width: 768px) {
   .option-button {
-    min-height: 160px;
+    padding: 1.25rem 1.5rem;
   }
 }
 
-/* Color Variants */
-.option-red {
-  background-color: #ef4444;
-  border-color: #b91c1c;
-  color: white;
-  box-shadow: 0 10px 15px -3px rgba(239, 68, 68, 0.3);
-}
-
-.option-red:hover:not(:disabled) {
-  background-color: #dc2626;
-  transform: translateY(-2px);
-}
-
-.option-red:active:not(:disabled) {
-  background-color: #b91c1c;
-  transform: translateY(0);
-}
-
-.option-blue {
-  background-color: #3b82f6;
-  border-color: #1e40af;
-  color: white;
-  box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3);
-}
-
-.option-blue:hover:not(:disabled) {
-  background-color: #2563eb;
-  transform: translateY(-2px);
-}
-
-.option-blue:active:not(:disabled) {
-  background-color: #1e40af;
-  transform: translateY(0);
-}
-
-.option-yellow {
-  background-color: #eab308;
-  border-color: #854d0e;
-  color: black;
-  box-shadow: 0 10px 15px -3px rgba(234, 179, 8, 0.3);
-}
-
-.option-yellow:hover:not(:disabled) {
-  background-color: #facc15;
-  transform: translateY(-2px);
-}
-
-.option-yellow:active:not(:disabled) {
-  background-color: #854d0e;
-  transform: translateY(0);
-}
-
+/* Remove color-based backgrounds for list style */
+.option-red,
+.option-blue,
+.option-yellow,
 .option-green {
-  background-color: #22c55e;
-  border-color: #15803d;
-  color: white;
-  box-shadow: 0 10px 15px -3px rgba(34, 197, 94, 0.3);
+  background-color: white;
+  border-color: #e0e0e0;
+  color: #333;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
+.option-red:hover:not(:disabled),
+.option-blue:hover:not(:disabled),
+.option-yellow:hover:not(:disabled),
 .option-green:hover:not(:disabled) {
-  background-color: #16a34a;
-  transform: translateY(-2px);
-}
-
-.option-green:active:not(:disabled) {
-  background-color: #15803d;
-  transform: translateY(0);
+  background-color: white;
+  border-color: #9b59b6;
 }
 
 /* State Classes */
 .option-selected {
-  outline: 4px solid white;
-  outline-offset: 2px;
-  transform: scale(1.02);
-  border: 4px solid black;
+  border-color: #9b59b6 !important;
+  background: linear-gradient(135deg, rgba(155, 89, 182, 0.1), rgba(142, 68, 173, 0.05)) !important;
+  box-shadow: 0 0 0 3px rgba(155, 89, 182, 0.2);
 }
 
 .option-disabled {
@@ -110,74 +67,72 @@
 }
 
 .option-correct {
-  opacity: 1;
-  outline: 4px solid white;
-  outline-offset: 2px;
-  transform: scale(1.02);
+  border-color: #28a745 !important;
+  background: linear-gradient(135deg, rgba(40, 167, 69, 0.15), rgba(40, 167, 69, 0.05)) !important;
+  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.2);
 }
 
 .option-wrong {
-  opacity: 1;
-  outline: 4px solid rgba(255, 255, 255, 0.5);
-  outline-offset: 2px;
+  border-color: #dc3545 !important;
+  background: linear-gradient(135deg, rgba(220, 53, 69, 0.15), rgba(220, 53, 69, 0.05)) !important;
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.2);
 }
 
 .option-disabled-result {
-  opacity: 0.4;
-  filter: grayscale(100%);
-}
-
-.option-shape {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  font-size: 1.5rem;
   opacity: 0.5;
+  filter: grayscale(50%);
 }
 
-@media (min-width: 768px) {
-  .option-shape {
-    font-size: 1.875rem;
-  }
+/* Hide shape icons for cleaner list style */
+.option-shape {
+  display: none;
 }
 
 .option-text {
-  font-size: 1.25rem;
-  text-align: center;
-  line-height: 1.25;
+  font-size: 1rem;
+  text-align: left;
+  line-height: 1.4;
   word-wrap: break-word;
-  width: 100%;
-  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5));
+  flex: 1;
+  color: #333;
+  filter: none;
 }
 
 @media (min-width: 768px) {
   .option-text {
-    font-size: 1.875rem;
+    font-size: 1.125rem;
   }
 }
 
 .option-result-icon {
   position: absolute;
-  top: 1rem;
+  top: 50%;
   right: 1rem;
+  transform: translateY(-50%);
 }
 
 .option-check-icon {
-  background-color: black;
+  background-color: #28a745;
   border-radius: 50%;
   padding: 0.25rem;
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3);
 }
 
 .option-x-icon {
-  background-color: white;
+  background-color: #dc3545;
   border-radius: 50%;
   padding: 0.25rem;
-  box-shadow: var(--shadow-md);
-  border: 2px solid black;
+  box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3);
 }
 
-/* Quiz Option (for create/detail pages) */
+.option-check-icon svg,
+.option-x-icon svg {
+  color: white !important;
+}
+
+/* =================================
+   Quiz Option (for create/detail pages)
+   ================================= */
 .quiz-option {
   display: flex;
   align-items: center;
@@ -195,11 +150,102 @@
 }
 
 .quiz-option.correct {
-  border-color: #000000;
-  background-color: rgba(0, 0, 0, 0.05);
+  border-color: #28a745;
+  background-color: rgba(40, 167, 69, 0.1);
 }
 
 .quiz-option.selected {
   border-color: var(--primary);
   background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* =================================
+   Colored Option Buttons (for host view)
+   ================================= */
+.option-button-colored {
+  min-height: 100px;
+  border-radius: var(--radius-lg);
+  border: 4px solid;
+}
+
+@media (min-width: 768px) {
+  .option-button-colored {
+    min-height: 160px;
+  }
+}
+
+.option-button-colored.option-red {
+  background-color: #ef4444;
+  border-color: #b91c1c;
+  color: white;
+  box-shadow: 0 10px 15px -3px rgba(239, 68, 68, 0.3);
+}
+
+.option-button-colored.option-red:hover:not(:disabled) {
+  background-color: #dc2626;
+  transform: translateY(-2px);
+}
+
+.option-button-colored.option-blue {
+  background-color: #3b82f6;
+  border-color: #1e40af;
+  color: white;
+  box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3);
+}
+
+.option-button-colored.option-blue:hover:not(:disabled) {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+}
+
+.option-button-colored.option-yellow {
+  background-color: #eab308;
+  border-color: #854d0e;
+  color: black;
+  box-shadow: 0 10px 15px -3px rgba(234, 179, 8, 0.3);
+}
+
+.option-button-colored.option-yellow:hover:not(:disabled) {
+  background-color: #facc15;
+  transform: translateY(-2px);
+}
+
+.option-button-colored.option-green {
+  background-color: #22c55e;
+  border-color: #15803d;
+  color: white;
+  box-shadow: 0 10px 15px -3px rgba(34, 197, 94, 0.3);
+}
+
+.option-button-colored.option-green:hover:not(:disabled) {
+  background-color: #16a34a;
+  transform: translateY(-2px);
+}
+
+.option-button-colored .option-shape {
+  display: block;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-size: 1.5rem;
+  opacity: 0.5;
+}
+
+@media (min-width: 768px) {
+  .option-button-colored .option-shape {
+    font-size: 1.875rem;
+  }
+}
+
+.option-button-colored .option-text {
+  font-size: 1.25rem;
+  text-align: center;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5));
+  color: inherit;
+}
+
+@media (min-width: 768px) {
+  .option-button-colored .option-text {
+    font-size: 1.875rem;
+  }
 }

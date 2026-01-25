@@ -1,67 +1,324 @@
-/* ============================================
-   JOIN GAME PAGE
-   ============================================ */
+/* JOIN GAME PAGE */
 
-.join-page-container {
+/* Main Page Container */
+.join-page {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  background: linear-gradient(180deg, #9b59b6 0%, #8e44ad 35%, #f5f5f5 35%);
+  position: relative;
+}
+
+/* Back Button */
+.join-back-btn {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  padding: 1rem;
-  gap: 1.5rem;
+  text-decoration: none;
+  font-size: 1.25rem;
+  transition: background 0.2s ease;
+  z-index: 10;
+}
+
+.join-back-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Header Section */
+.join-header {
   width: 100%;
-}
-
-.join-page-title {
-  font-size: 1.875rem;
-  font-weight: 900;
-  color: black;
-}
-
-.join-page-signin-message {
-  color: rgba(0, 0, 0, 0.7);
-}
-
-.join-form {
-  width: 100%;
-  max-width: 320px;
+  padding: 3rem 1.5rem 5rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.join-game-pin-display {
-  text-align: center;
-  padding: 1rem;
-  border: 2px solid black;
-  border-radius: var(--radius-lg);
-}
-
-.join-game-pin-label {
-  font-size: 0.875rem;
-  color: rgba(0, 0, 0, 0.6);
-}
-
-.join-game-pin-value {
-  font-size: 1.875rem;
+.join-title {
+  font-size: 2rem;
   font-weight: 900;
-  color: black;
-  letter-spacing: 0.1em;
+  font-style: italic;
+  color: white;
+  text-align: center;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.join-subtitle {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  margin: 0;
+}
+
+/* White Card Container */
+.join-card {
+  width: 100%;
+  max-width: 100%;
+  background: white;
+  border-radius: 24px 24px 0 0;
+  padding: 2rem 1.5rem;
+  margin-top: -2rem;
+  box-shadow: 0 -4px 32px rgba(0, 0, 0, 0.12);
+  flex: 1;
+}
+
+@media (min-width: 480px) {
+  .join-card {
+    max-width: 400px;
+    border-radius: 24px;
+    flex: none;
+    margin-bottom: 2rem;
+  }
+}
+
+/* Form Styles */
+.join-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Input Group */
+.join-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.join-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #333;
+  letter-spacing: 0.08em;
+}
+
+/* Game Code Input */
+.join-code-input {
+  width: 100%;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: 0.25em;
+  background: #f5f5f5;
+  border: 2px solid #e0e0e0;
+  border-radius: 14px;
+  color: #333;
+  text-transform: uppercase;
+  transition: border-color 0.2s ease;
+}
+
+.join-code-input::placeholder {
+  color: #ccc;
+  letter-spacing: 0.15em;
+  font-size: 1.5rem;
+}
+
+.join-code-input:focus {
+  outline: none;
+  border-color: #9b59b6;
+  background: white;
+}
+
+/* Name Input */
+.join-name-input {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background: #f5f5f5;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  color: #333;
+  transition: border-color 0.2s ease;
+}
+
+.join-name-input::placeholder {
+  color: #999;
+  font-weight: 500;
+}
+
+.join-name-input:focus {
+  outline: none;
+  border-color: #9b59b6;
+  background: white;
+}
+
+/* Game Found Section */
+.join-found-section {
+  text-align: center;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(22, 163, 74, 0.1) 100%);
+  border-radius: 16px;
+  border: 2px solid #22c55e;
+}
+
+.join-found-icon {
+  width: 48px;
+  height: 48px;
+  background: #22c55e;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 auto 0.75rem;
+}
+
+.join-found-text {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #166534;
+  margin: 0 0 0.25rem 0;
+}
+
+.join-found-code {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #22c55e;
+  letter-spacing: 0.1em;
+  margin: 0;
+}
+
+/* Error Message */
+.join-error {
+  color: #dc2626;
+  background: rgba(220, 38, 38, 0.08);
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  text-align: center;
+  border: 1px solid rgba(220, 38, 38, 0.15);
+  margin: 0;
+}
+
+/* Find Game Button */
+.join-find-btn {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(135deg, #a855f7 0%, #9b59b6 50%, #7c3aed 100%);
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 28px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 16px rgba(155, 89, 182, 0.35);
+}
+
+.join-find-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(155, 89, 182, 0.45);
+}
+
+.join-find-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Button Group */
 .join-button-group {
   display: flex;
   gap: 0.75rem;
 }
 
-.join-back-home-link {
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 0.875rem;
-  text-decoration: none;
-  transition: color var(--transition-normal);
+.join-back-button {
+  flex: 0.35;
+  padding: 1rem;
+  background: #f5f5f5;
+  border: 1.5px solid #e0e0e0;
+  color: #333;
+  font-weight: 700;
+  border-radius: 28px;
+  cursor: pointer;
+  transition: background 0.2s ease;
 }
 
-.join-back-home-link:hover {
-  color: black;
+.join-back-button:hover {
+  background: #ebebeb;
 }
+
+.join-submit-btn {
+  flex: 0.65;
+  padding: 1rem;
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  color: white;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 28px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 16px rgba(34, 197, 94, 0.35);
+}
+
+.join-submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(34, 197, 94, 0.45);
+}
+
+.join-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Sign In Message */
+.join-message {
+  font-size: 1rem;
+  color: #666;
+  text-align: center;
+  margin: 0 0 1.5rem 0;
+}
+
+.join-signin-link {
+  display: block;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(135deg, #a855f7 0%, #9b59b6 100%);
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 28px;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(155, 89, 182, 0.35);
+}
+
+/* Bottom Logo */
+.join-bottom-logo {
+  margin-top: auto;
+  padding: 2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.join-logo-img {
+  width: 160px;
+  height: auto;
+}
+
+/* Legacy support */
+.join-page-container { display: none; }

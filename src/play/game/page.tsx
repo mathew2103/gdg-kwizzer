@@ -7,7 +7,8 @@ import { firestoreService } from "../../lib/firestore";
 import { useGame, useLeaderboard } from "../../hooks/useGame";
 import { Quiz, Player } from "../../types/firebase";
 import { Button, Card, Spinner } from "../../components/ui";
-import { QuestionText, OptionButton, Leaderboard } from "../../components/game";
+import { Leaderboard } from "../../components/game";
+import { Check, X, Clock } from "lucide-react";
 
 export default function GamePage() {
   const { user } = useAuth();
@@ -43,19 +44,18 @@ export default function GamePage() {
     }
 
     loadQuiz();
-  }, [game?.quizId, user?.uid]); // Only fetch quiz when quizId or user changes
+  }, [game?.quizId, user?.uid]);
 
   // Reset answer state when question changes to a new question
   useEffect(() => {
     if (game?.phase === "questionLive" && quiz) {
-      // Only reset if this is a new question (different from current)
       const currentQuestionIndex = game.currentQuestionIndex;
       if (currentQuestionIndex !== undefined) {
         setSelectedAnswer(null);
         setAnswerSubmitted(false);
       }
     }
-  }, [game?.currentQuestionIndex]); // Only depend on question index changing
+  }, [game?.currentQuestionIndex]);
 
   // Calculate time left from server-side timer
   const timeLeft = game?.timeLeft || 0;
@@ -89,12 +89,11 @@ export default function GamePage() {
   }
 
   if (!game || !quiz) {
-    // Auto-redirect to home if game doesn't exist
     useEffect(() => {
       const timer = setTimeout(() => {
         navigate("/");
-      }, 2000); // Redirect after 2 seconds
-      
+      }, 2000);
+
       return () => clearTimeout(timer);
     }, [navigate]);
 
@@ -112,12 +111,11 @@ export default function GamePage() {
   }
 
   if (!currentPlayer) {
-    // Auto-redirect to home if user is not in the game
     useEffect(() => {
       const timer = setTimeout(() => {
         navigate("/");
-      }, 2000); // Redirect after 2 seconds
-      
+      }, 2000);
+
       return () => clearTimeout(timer);
     }, [navigate]);
 
@@ -125,7 +123,9 @@ export default function GamePage() {
       <div className="game-center-container">
         <Card variant="default" padding="lg" className="text-center">
           <h2 className="game-error-title">Not in game</h2>
-          <p className="game-error-message">You're not part of this game. Redirecting to home...</p>
+          <p className="game-error-message">
+            You're not part of this game. Redirecting to home...
+          </p>
           <button onClick={() => navigate("/")} className="game-error-button">
             Go to Home Now
           </button>
@@ -134,50 +134,59 @@ export default function GamePage() {
     );
   }
 
-  // Lobby Phase
+  // Lobby Phase - New Design
   if (game.phase === "lobby") {
+    // Create participant slots (show up to 5 slots)
+    const maxSlots = 5;
+    const participantSlots = [];
+    for (let i = 0; i < maxSlots; i++) {
+      participantSlots.push(players[i] || null);
+    }
+
     return (
       <div className="game-lobby-container">
-        <Card variant="default" padding="lg" className="lobby-card">
-          <h1 className="lobby-title">Game Lobby</h1>
+        {/* Purple Header Section */}
+        <div className="lobby-header">
+          <h1 className="lobby-title">Game Code</h1>
+          <div className="lobby-code-display">#{game.joinCode}</div>
+        </div>
 
-          {/* Player's name prominently displayed */}
-          {currentPlayer && (
-            <div className="lobby-welcome">
-              <div className="lobby-welcome-name">
-                Welcome, {currentPlayer.name}!
+        {/* White Card with Participants */}
+        <div className="lobby-participants-card">
+          <h2 className="lobby-participants-title">Participants</h2>
+
+          <div className="lobby-participants-list">
+            {participantSlots.map((player, index) => (
+              <div
+                key={index}
+                className={`lobby-participant-slot ${player ? "filled" : ""}`}
+              >
+                {player ? (
+                  <span className="lobby-participant-name">{player.name}</span>
+                ) : (
+                  <div className="lobby-participant-empty"></div>
+                )}
               </div>
-              <div className="lobby-welcome-message">
-                You're in the game and ready to play!
-              </div>
-            </div>
+            ))}
+          </div>
+
+          {/* Show player count if more than 5 */}
+          {players.length > maxSlots && (
+            <p className="lobby-waiting-message">
+              +{players.length - maxSlots} more participants
+            </p>
           )}
 
-          <div className="lobby-info">
-            <p className="lobby-code">
-              Game Code:{" "}
-              <span className="lobby-code-value">{game.joinCode}</span>
-            </p>
-            <p className="lobby-players">
-              Players Joined:{" "}
-              <span className="lobby-players-count">{players.length}</span>
-            </p>
-          </div>
+          <p className="lobby-waiting-message">Waiting for more participants</p>
+        </div>
 
-          {/* Waiting message */}
-          <div className="lobby-waiting">
-            <p className="lobby-waiting-text">
-              Waiting for admin to start the game...
-            </p>
-          </div>
-        </Card>
+        {/* Note: START button would be shown to host only */}
       </div>
     );
   }
 
-  // Question Phase
+  // Question Phase - New Design
   if (game.phase === "questionLive") {
-    // Add null checks for quiz and question
     if (
       !quiz ||
       !quiz.questions ||
@@ -197,50 +206,58 @@ export default function GamePage() {
 
     return (
       <div className="game-question-container">
-        <div className="game-question-wrapper">
-          <div className="game-question-header">
-            <h1 className="game-question-number">
-              Question {game.currentQuestionIndex + 1}
-            </h1>
-            <div className="game-timer">Time: {timeLeft}s</div>
-          </div>
+        {/* Back Button */}
+        <button className="game-back-button" onClick={() => navigate("/")}>
+          ←
+        </button>
 
-          {/* <QuestionText text={question.text} /> */}
-
-          <div className="game-options-grid">
-            {question.options.map((option, index) => (
-              <OptionButton
-                key={index}
-                index={index}
-                text={option}
-                selected={selectedAnswer === index}
-                onClick={() => !answerSubmitted && setSelectedAnswer(index)}
-                disabled={answerSubmitted}
-              />
-            ))}
-          </div>
-
-          {selectedAnswer !== null && !answerSubmitted && (
-            <div className="game-submit-section">
-              <Button onClick={submitAnswer} className="w-full max-w-xs">
-                Submit Answer
-              </Button>
-            </div>
-          )}
-
-          {answerSubmitted && (
-            <div className="game-submitted-section">
-              <p className="game-submitted-text">Answer submitted!</p>
-            </div>
-          )}
+        {/* Question Header with Number and Timer */}
+        <div className="game-question-header">
+          <span className="game-question-number">
+            Question {game.currentQuestionIndex + 1}/ {quiz.questions.length}
+          </span>
+          <div className="game-timer-badge">{timeLeft}s</div>
         </div>
+
+        {/* Question Card */}
+        <div className="game-question-card">
+          <p className="game-question-text">{question.text}</p>
+        </div>
+
+        {/* Options Grid */}
+        <div className="game-options-grid">
+          {question.options.map((option, index) => (
+            <button
+              key={index}
+              className={`game-option-item ${selectedAnswer === index ? "selected" : ""}`}
+              onClick={() => !answerSubmitted && setSelectedAnswer(index)}
+              disabled={answerSubmitted}
+            >
+              {option}
+            </button>
+          ))}
+        </div>
+
+        {/* Submit Button */}
+        {selectedAnswer !== null && !answerSubmitted && (
+          <div className="game-submit-section">
+            <button onClick={submitAnswer} className="game-submit-button">
+              Submit Answer
+            </button>
+          </div>
+        )}
+
+        {answerSubmitted && (
+          <div className="game-submitted-section">
+            <p className="game-submitted-text">Answer submitted!</p>
+          </div>
+        )}
       </div>
     );
   }
 
   // Results Phase
   if (game.phase === "results") {
-    // Add null checks for quiz and question
     if (
       !quiz ||
       !quiz.questions ||
@@ -269,17 +286,27 @@ export default function GamePage() {
               !didAnswer
                 ? "game-result-no-answer"
                 : isCorrect
-                ? "game-result-correct"
-                : "game-result-wrong"
+                  ? "game-result-correct"
+                  : "game-result-wrong"
             }`}
           >
+            <div className="game-result-icon-wrapper">
+              {!didAnswer ? (
+                <Clock size={32} />
+              ) : isCorrect ? (
+                <Check size={32} />
+              ) : (
+                <X size={32} />
+              )}
+            </div>
+
             <div
               className={`game-result-status ${
                 !didAnswer
                   ? "game-result-status-no-answer"
                   : isCorrect
-                  ? "game-result-status-correct"
-                  : "game-result-status-wrong"
+                    ? "game-result-status-correct"
+                    : "game-result-status-wrong"
               }`}
             >
               {!didAnswer ? "Time's Up!" : isCorrect ? "Correct!" : "Wrong"}
@@ -289,15 +316,15 @@ export default function GamePage() {
                 !didAnswer
                   ? "game-result-message-no-answer"
                   : isCorrect
-                  ? "game-result-message-correct"
-                  : "game-result-message-wrong"
+                    ? "game-result-message-correct"
+                    : "game-result-message-wrong"
               }`}
             >
               {!didAnswer
                 ? "You didn't answer in time"
                 : isCorrect
-                ? "Great job! You got it right!"
-                : "Better luck next time!"}
+                  ? "Great job! You got it right!"
+                  : "Better luck next time!"}
             </p>
           </div>
 
@@ -309,23 +336,29 @@ export default function GamePage() {
             </div>
             <h2 className="game-results-question-text">{question.text}</h2>
 
-            {/* Correct Answer Display */}
-            <div className="game-correct-answer">
-              <div className="game-answer-label-correct">Correct Answer</div>
-              <div className="game-answer-value-correct">
-                {question.options[question.correctAnswer]}
-              </div>
-            </div>
-
-            {/* Show user's answer if they answered wrong */}
-            {didAnswer && !isCorrect && (
-              <div className="game-user-answer">
-                <div className="game-answer-label-wrong">Your Answer</div>
-                <div className="game-answer-value-wrong">
-                  {question.options[selectedAnswer]}
+            <div className="game-results-answers">
+              {/* Correct Answer Display */}
+              <div className="game-answer-box game-correct-answer">
+                <div className="game-answer-label game-answer-label-correct">
+                  Correct Answer
+                </div>
+                <div className="game-answer-value game-answer-value-correct">
+                  {question.options[question.correctAnswer]}
                 </div>
               </div>
-            )}
+
+              {/* Show user's answer if they answered wrong */}
+              {didAnswer && !isCorrect && (
+                <div className="game-answer-box game-user-answer">
+                  <div className="game-answer-label game-answer-label-wrong">
+                    Your Answer
+                  </div>
+                  <div className="game-answer-value game-answer-value-wrong">
+                    {question.options[selectedAnswer]}
+                  </div>
+                </div>
+              )}
+            </div>
           </Card>
 
           {/* Show leaderboard */}
@@ -343,12 +376,10 @@ export default function GamePage() {
 
   // Game Over Phase
   if (game.phase === "ended") {
-    // Find current user's rank and score from leaderboard
     const userEntry = leaderboard.find((entry) => entry.playerId === user?.uid);
     const userRank = userEntry?.rank || 0;
     const userScore = userEntry?.score || 0;
 
-    // Handle edge cases for rank display
     const getRankDisplay = (rank: number) => {
       if (rank === 0) return "Not ranked";
       if (rank === 1) return "1st";
@@ -357,11 +388,10 @@ export default function GamePage() {
       return `#${rank}`;
     };
 
-    // Handle edge cases for message
     const getResultMessage = (
       rank: number,
       score: number,
-      playerName: string
+      playerName: string,
     ) => {
       if (rank === 0 && score === 0) {
         return `${playerName}, you didn't score any points this round.`;
@@ -371,11 +401,11 @@ export default function GamePage() {
       }
       if (score === 0) {
         return `${playerName}, you finished ${getRankDisplay(
-          rank
+          rank,
         )} with no points. Better luck next time!`;
       }
       return `${playerName}, you finished ${getRankDisplay(
-        rank
+        rank,
       )} place with ${score} points!`;
     };
 
@@ -399,24 +429,27 @@ export default function GamePage() {
                 <div className="game-over-stat-label">Your Points</div>
               </div>
             </div>
-            <div className="game-over-message">
+            <p className="game-over-message">
               {getResultMessage(
                 userRank,
                 userScore,
-                currentPlayer?.name || "Player"
+                currentPlayer?.name || "Player",
               )}
-            </div>
+            </p>
           </Card>
 
-          {/* Full Leaderboard - only show if there are entries */}
+          {/* Full Leaderboard with Podium */}
           {leaderboard.length > 0 && (
             <div className="game-over-leaderboard-section">
-              <h2 className="game-over-leaderboard-title">Final Leaderboard</h2>
-              <Leaderboard entries={leaderboard} showLiveIndicator={false} />
+              <Leaderboard
+                entries={leaderboard}
+                showLiveIndicator={false}
+                currentPlayerId={user?.uid}
+                showPodium={true}
+              />
             </div>
           )}
 
-          {/* Show message if no leaderboard data */}
           {leaderboard.length === 0 && (
             <div className="game-over-no-data">
               <p className="game-over-no-data-text">

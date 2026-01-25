@@ -1,70 +1,227 @@
-/* ============================================
-   HOME PAGE
-   ============================================ */
+/* HOME PAGE */
 
-.home-container {
+/* Main Container - Full screen with gradient */
+.home-page {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 1rem;
-  gap: 2rem;
-  background-color: white;
+  background: linear-gradient(180deg, #9b59b6 0%, #8e44ad 35%, #f5f5f5 35%);
   width: 100%;
 }
 
-@media (min-width: 640px) {
-  .home-container {
-    padding: 1.5rem;
-  }
-}
-
-@media (min-width: 768px) {
-  .home-container {
-    padding: 2rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .home-container {
-    padding: 2.5rem;
-  }
-}
-
-.home-loading-container {
-  min-height: 100vh;
+/* Header Section - Purple gradient area */
+.home-header {
+  width: 100%;
+  padding: 3rem 1.5rem 5rem;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  gap: 0.5rem;
 }
 
 .home-title {
   font-size: 2.25rem;
   font-weight: 900;
-  color: black;
+  font-style: italic;
+  color: white;
+  text-align: center;
+  margin: 0;
+  letter-spacing: 0.05em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-@media (min-width: 768px) {
-  .home-title {
-    font-size: 3rem;
-  }
+.home-subtitle {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85);
+  text-align: center;
+  margin: 0;
 }
 
-.home-buttons-grid {
+/* White Card Container - Full width on mobile */
+.home-container {
+  width: 100%;
+  max-width: 100%;
+  background: white;
+  border-radius: 24px 24px 0 0;
+  padding: 2rem 1.5rem;
+  margin-top: -2rem;
+  box-shadow: 0 -4px 32px rgba(0, 0, 0, 0.12);
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  flex: 1;
+}
+
+@media (min-width: 480px) {
+  .home-container {
+    max-width: 400px;
+    border-radius: 24px;
+    flex: none;
+  }
+}
+
+/* Loading State */
+.home-loading-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #9b59b6 0%, #8e44ad 100%);
+}
+
+.home-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Buttons Grid */
+.home-buttons-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
   width: 100%;
-  max-width: 28rem;
 }
 
+/* Button Styles */
+.home-button {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+}
+
+/* Outline Button - for secondary actions */
+.home-button-outline {
+  background: #f5f5f5;
+  color: #333;
+  border: 1.5px solid #e0e0e0;
+}
+
+.home-button-outline:hover {
+  background: #ebebeb;
+  border-color: #ccc;
+}
+
+/* Filled Button - Primary action */
+.home-button-filled {
+  background: linear-gradient(135deg, #a855f7 0%, #9b59b6 50%, #7c3aed 100%);
+  color: white;
+  box-shadow: 0 4px 16px rgba(155, 89, 182, 0.35);
+}
+
+.home-button-filled:hover {
+  background: linear-gradient(135deg, #9333ea 0%, #7c3aed 50%, #6d28d9 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(155, 89, 182, 0.45);
+}
+
+/* Signout Button */
+.home-signout-button {
+  background: transparent;
+  color: #9b59b6;
+  border: 1.5px solid #9b59b6;
+  margin-top: 0.5rem;
+}
+
+.home-signout-button:hover {
+  background: rgba(155, 89, 182, 0.1);
+}
+
+/* Divider */
+.home-divider {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 0;
+}
+
+.home-divider-line {
+  flex: 1;
+  height: 1px;
+  background-color: #e0e0e0;
+}
+
+.home-divider-text {
+  color: #999;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+/* User Info */
 .home-user-info {
-  font-size: 0.875rem;
-  color: black;
+  font-size: 0.85rem;
+  color: #666;
+  text-align: center;
+  margin: 0;
+  padding-top: 0.5rem;
+  border-top: 1px solid #eee;
 }
 
-/* App Router Loading */
+/* Bottom Logo Section */
+.home-bottom-logo {
+  margin-top: auto;
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.home-logo-placeholder {
+  width: 160px;
+  height: auto;
+}
+
+.home-logo-text {
+  font-size: 0.75rem;
+  color: #666;
+  text-align: center;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.home-logo-text-highlight {
+  color: #9b59b6;
+  font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .home-header {
+    padding: 2.5rem 1rem 4rem;
+  }
+  
+  .home-title {
+    font-size: 1.875rem;
+  }
+  
+  .home-container {
+    padding: 1.75rem 1.25rem;
+  }
+}
+
+/* App loading - legacy */
 .app-loading-container {
   min-height: 100vh;
   display: flex;
