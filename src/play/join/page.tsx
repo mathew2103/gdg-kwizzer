@@ -5,6 +5,7 @@ import { useAuth } from "../../contexts/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
 import { firestoreService } from "../../lib/firestore";
 import { Game } from "../../types/firebase";
+import { ArrowLeft } from "lucide-react";
 
 export default function JoinGamePage() {
   const { user } = useAuth();
@@ -23,7 +24,7 @@ export default function JoinGamePage() {
 
     try {
       const foundGame = await firestoreService.getGameByJoinCode(
-        joinCode.toUpperCase()
+        joinCode.toUpperCase(),
       );
       if (!foundGame) {
         setError("Game not found. Check the code.");
@@ -73,91 +74,124 @@ export default function JoinGamePage() {
 
   if (!user) {
     return (
-      <div className="join-page-container">
-        <h1 className="join-page-title">Join Game</h1>
-        <p className="join-page-signin-message">Please sign in first</p>
-        <Link to="/auth/signin">
-          <button className="join-page-signin-button">Sign In</button>
+      <div className="join-page">
+        {/* Back Button */}
+        <Link to="/" className="join-back-btn" title="Back to Home">
+          <ArrowLeft size={24} />
         </Link>
+
+        <div className="join-header">
+          <h1 className="join-title">Join Game</h1>
+          <p className="join-subtitle">Sign in to play</p>
+        </div>
+
+        <div className="join-card">
+          <p className="join-message">Please sign in first to join a game</p>
+          <Link to="/auth/signin" className="join-signin-link">
+            Sign In
+          </Link>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="join-page-container">
-      <h1 className="join-page-title">Join Game</h1>
+    <div className="join-page">
+      {/* Back Button */}
+      <Link to="/" className="join-back-btn" title="Back to Home">
+        <ArrowLeft size={24} />
+      </Link>
 
-      {!game ? (
-        <form onSubmit={handleFindGame} className="join-form">
-          <input
-            type="text"
-            value={joinCode}
-            onChange={(e) =>
-              setJoinCode(
-                e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, "")
-              )
-            }
-            placeholder="Enter Game PIN"
-            maxLength={6}
-            className="join-pin-input"
-            required
-          />
+      {/* Header */}
+      <div className="join-header">
+        <h1 className="join-title">Join Game</h1>
+        <p className="join-subtitle">Enter the game code to play</p>
+      </div>
 
-          {error && <p className="join-error-message">{error}</p>}
+      {/* White Card */}
+      <div className="join-card">
+        {!game ? (
+          <form onSubmit={handleFindGame} className="join-form">
+            {/* Game Code Label */}
+            <div className="join-input-group">
+              <label className="join-label">Game Code</label>
+              <input
+                type="text"
+                value={joinCode}
+                onChange={(e) =>
+                  setJoinCode(
+                    e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, ""),
+                  )
+                }
+                placeholder="XXXXXX"
+                maxLength={6}
+                className="join-code-input"
+                required
+              />
+            </div>
 
-          <button
-            type="submit"
-            disabled={loading || joinCode.length < 4}
-            className="join-find-button"
-          >
-            {loading ? "Finding..." : "Find Game"}
-          </button>
-        </form>
-      ) : (
-        <form onSubmit={handleJoinGame} className="join-form">
-          <div className="join-game-pin-display">
-            <p className="join-game-pin-label">Game PIN</p>
-            <p className="join-game-pin-value">{game.joinCode}</p>
-          </div>
+            {error && <p className="join-error">{error}</p>}
 
-          <input
-            type="text"
-            value={playerName}
-            onChange={(e) => setPlayerName(e.target.value)}
-            placeholder="Your Nickname"
-            maxLength={15}
-            className="join-nickname-input"
-            required
-          />
-
-          {error && <p className="join-error-message">{error}</p>}
-
-          <div className="join-button-group">
-            <button
-              type="button"
-              onClick={() => {
-                setGame(null);
-                setJoinCode("");
-                setError("");
-              }}
-              className="join-back-button"
-            >
-              Back
-            </button>
             <button
               type="submit"
-              disabled={loading}
-              className="join-join-button"
+              disabled={loading || joinCode.length < 4}
+              className="join-find-btn"
             >
-              {loading ? "Joining..." : "Join!"}
+              {loading ? "Finding..." : "Find Game"}
             </button>
-          </div>
-        </form>
-      )}
+          </form>
+        ) : (
+          <form onSubmit={handleJoinGame} className="join-form">
+            {/* Game Found */}
+            <div className="join-found-section">
+              <p className="join-found-text">Game Found!</p>
+              <p className="join-found-code">#{game.joinCode}</p>
+            </div>
 
-      <Link to="/" className="join-back-home-link">
-        ← Back to Home
-      </Link>
+            {/* Nickname Input */}
+            <div className="join-input-group">
+              <label className="join-label">Your Nickname</label>
+              <input
+                type="text"
+                value={playerName}
+                onChange={(e) => setPlayerName(e.target.value)}
+                placeholder="Enter your name"
+                maxLength={15}
+                className="join-name-input"
+                required
+              />
+            </div>
+
+            {error && <p className="join-error">{error}</p>}
+
+            <div className="join-button-group">
+              <button
+                type="button"
+                onClick={() => {
+                  setGame(null);
+                  setJoinCode("");
+                  setError("");
+                }}
+                className="join-back-button"
+              >
+                Back
+              </button>
+              <button
+                type="submit"
+                disabled={loading || !playerName.trim()}
+                className="join-submit-btn"
+              >
+                {loading ? "Joining..." : "Join Game"}
+              </button>
+            </div>
+          </form>
+        )}
+      </div>
+
+      {/* Bottom Logo */}
+      <div className="join-bottom-logo">
+        <img src="/gdgLogo.png" alt="GDG Logo" className="join-logo-img" />
+      </div>
     </div>
   );
 }
