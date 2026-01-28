@@ -9,7 +9,11 @@ interface AppLayoutProps {
 export function AppLayout({ children }: AppLayoutProps) {
   return (
     <div className="app-layout">
-      <main className="app-main">{children}</main>
+      <main className="app-main">
+          <div className={"app-container"}>
+              {children}
+          </div>
+      </main>
     </div>
   );
 }

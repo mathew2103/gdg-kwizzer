@@ -45,8 +45,8 @@ export default function SignInPage() {
   return (
     <div className="auth-container">
       <h1 className="auth-title">Sign In</h1>
-
       <form onSubmit={handleSubmit} className="auth-form">
+          Email:
         <input
           type="email"
           value={email}
@@ -55,6 +55,7 @@ export default function SignInPage() {
           className="input"
           required
         />
+          Password:
 
         <input
           type="password"
@@ -70,28 +71,27 @@ export default function SignInPage() {
         <button type="submit" disabled={loading} className="btn-signin">
           {loading ? "Signing in..." : "Sign In"}
         </button>
+          <div className="auth-divider">
+              <div className="divider-line"></div>
+          </div>
+
+          <button
+              onClick={handleGoogleSignIn}
+              disabled={loading}
+              className="btn-google"
+          >
+              Sign in with Google
+          </button>
+
+          <p className="auth-footer">
+              Don't have an account?{" "}
+              <Link to="/auth/signup" className="auth-link">
+                  Sign up
+              </Link>
+          </p>
       </form>
 
-      <div className="auth-divider">
-        <div className="divider-line"></div>
-        <span className="divider-text">or</span>
-        <div className="divider-line"></div>
-      </div>
 
-      <button
-        onClick={handleGoogleSignIn}
-        disabled={loading}
-        className="btn-google"
-      >
-        Sign in with Google
-      </button>
-
-      <p className="auth-footer">
-        Don't have an account?{" "}
-        <Link to="/auth/signup" className="auth-link">
-          Sign up
-        </Link>
-      </p>
     </div>
   );
 }

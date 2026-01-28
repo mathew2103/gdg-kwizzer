@@ -3,137 +3,226 @@
    ============================================ */
 
 .leaderboard {
-  background-color: white;
-  backdrop-filter: blur(12px);
-  border: 2px solid black;
-  border-radius: var(--radius-xl);
-  overflow: hidden;
+    backdrop-filter: blur(120px);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
 }
 
 .leaderboard-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem;
-  border-bottom: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background: rgba(216, 200, 200, 1);
 }
 
 .leaderboard-title {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: black;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: black;
 }
 
 .leaderboard-live-indicator {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.875rem;
-  color: black;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: black;
 }
 
 .live-dot {
-  width: 0.5rem;
-  height: 0.5rem;
-  background-color: black;
-  border-radius: 50%;
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: #54fc00;
+    border-radius: 50%;
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 .leaderboard-entries {
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .leaderboard-empty {
-  padding: 2rem;
-  text-align: center;
-  color: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.5);
 }
 
 .leaderboard-entry {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  transition: background-color var(--transition-normal);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    transition: background-color var(--transition-normal);
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .leaderboard-entry:last-child {
-  border-bottom: none;
+    border-bottom: none;
 }
 
 .leaderboard-entry.current-player {
-  background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(239, 245, 249, 0.6);
 }
 
 .leaderboard-player-info {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
 .leaderboard-rank {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 0.875rem;
-  border: 2px solid;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.875rem;
+    border: 2px solid;
 }
 
 .rank-gold {
-  background-color: #facc15;
-  color: #713f12;
-  border-color: #eab308;
-  font-weight: 900;
+    background-color: #facc15;
+    color: #713f12;
+    border-color: #eab308;
+    font-weight: 900;
 }
 
 .rank-silver {
-  background-color: #d1d5db;
-  color: #374151;
-  border-color: #9ca3af;
-  font-weight: 700;
+    background-color: #d1d5db;
+    color: #374151;
+    border-color: #9ca3af;
+    font-weight: 700;
 }
 
 .rank-bronze {
-  background-color: #b45309;
-  color: #fef3c7;
-  border-color: #92400e;
-  font-weight: 700;
+    background-color: #b45309;
+    color: #fef3c7;
+    border-color: #92400e;
+    font-weight: 700;
 }
 
 .rank-default {
-  background-color: white;
-  color: black;
-  border-color: black;
+    background-color: white;
+    color: black;
+    border-color: black;
 }
 
 .leaderboard-player-name {
-  font-weight: 700;
-  color: rgba(0, 0, 0, 0.8);
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .leaderboard-player-name.current {
-  color: black;
+    color: #191919;
 }
 
 .leaderboard-you-badge {
-  margin-left: 0.5rem;
-  font-size: 0.75rem;
-  background-color: black;
-  color: white;
-  padding: 0.125rem 0.5rem;
-  border-radius: 9999px;
-  font-weight: 700;
+    margin-left: 0.5rem;
+    font-size: 0.75rem;
+    background-color: black;
+    color: white;
+    padding: 0.125rem 0.5rem;
+    border-radius: 9999px;
+    font-weight: 700;
 }
 
 .leaderboard-score {
-  font-family: monospace;
-  font-weight: 700;
-  color: black;
-  font-size: 1.125rem;
+    font-family: monospace;
+    font-weight: 500;
+    color: white;
+    font-size: 1.125rem;
 }
+
+.podium-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 1rem;
+    padding: 0 1rem 3rem;
+    margin: 2rem 0 1rem;
+    border-radius: 0.75rem;
+    background: radial-gradient(
+            ellipse 100% 70% at 100% 0%,
+            var(--glow-smoky) 10%, /* Spreads the brightness to half the page */ var(--glass-blue) 100% /* Soft finish at the bottom-left */
+    ) !important;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+}
+
+.podium-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 120px;
+    transition: all 0.5s ease-out;
+}
+
+.rank-1-pos {
+
+}
+
+.rank-2-pos {
+    margin-top: 9rem;
+}
+
+.rank-3-pos {
+    margin-top: 11rem;
+}
+
+.podium-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Logic for different heights */
+.rank-1 .podium-bar {
+    background: #FFD700;
+    font-size: 2rem;
+    box-shadow: 0 4px 20px #FFD700;
+}
+
+
+.rank-2 .podium-bar {
+    background: #C0C0C0;
+    font-size: 2rem;
+    box-shadow: 0 4px 20px #C0C0C0;
+}
+
+.rank-3 .podium-bar {
+    background: #CD7F32;
+    font-size: 2rem;
+    box-shadow: 0 4px 20px #CD7F32;
+}
+
+.podium-name {
+    font-weight: bold;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.podium-score {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.podium-empty {
+    width: 120px;
+}
+
+.crown {
+    font-size: 2rem;
+}
+

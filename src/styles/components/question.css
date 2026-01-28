@@ -23,64 +23,35 @@
 }
 
 .question-badge {
-    color: #3a0f1b;
-    font-weight: 600;
-    background: linear-gradient(
-        180deg,
-        #6b0f1a 0%,
-        #5a0d18 35%,
-        #4a0c17 65%,
-        #3b0a14 100%
-    );
-    padding: 0.35rem 0.9rem;
+    color: black;
+    font-weight: 500;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 0.25rem 0.75rem;
     border-radius: 9999px;
     font-size: 0.875rem;
-
-    border: 1px solid rgba(255, 255, 255, 0.4);
-
-    box-shadow:
-        inset 1px 1px 3px rgba(0, 0, 0, 0.15),
-        inset -1px -1px 3px rgba(255, 255, 255, 0.6);
+    border: 1px solid black;
 }
 
 .question-timer {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-
-    background: linear-gradient(
-        180deg,
-        #6b0f1a 0%,
-        #5a0d18 35%,
-        #4a0c17 65%,
-        #3b0a14 100%
-    );
-    padding: 0.35rem 0.9rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 0.25rem 0.75rem;
     border-radius: 9999px;
-
-    border: 1px solid rgba(255, 255, 255, 0.4);
-
-    box-shadow:
-        inset 1px 1px 3px rgba(0, 0, 0, 0.15),
-        inset -1px -1px 3px rgba(255, 255, 255, 0.6);
+    border: 1px solid black;
 }
 
 .timer-dot {
     width: 0.5rem;
     height: 0.5rem;
     border-radius: 50%;
-    background: linear-gradient(
-        180deg,
-        #6b0f1a 0%,
-        #5a0d18 35%,
-        #4a0c17 65%,
-        #3b0a14 100%
-    );
+    background-color: black;
     animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 .timer-text {
-    color: #3a0f1b;
+    color: black;
     font-weight: 700;
     font-size: 0.875rem;
 }
@@ -90,30 +61,17 @@
 --------------------------------------------- */
 
 .question-box {
-    background: linear-gradient(
-        180deg,
-        #6b0f1a 0%,
-        #5a0d18 35%,
-        #4a0c17 65%,
-        #3b0a14 100%
-    );
-    color: #3a0f1b;
-
+    background-color: #e3e3e3;
+    color: black;
     padding: 2rem;
-    border-radius: 20px;
-
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-xl);
+    text-align: center;
     min-height: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-
-    border: 1px solid rgba(255, 255, 255, 0.4);
-
-    box-shadow:
-        inset 3px 3px 8px rgba(0, 0, 0, 0.18),
-        inset -3px -3px 8px rgba(255, 255, 255, 0.6),
-        0 14px 28px rgba(0, 0, 0, 0.35);
+    border: 2px solid black;
 }
 
 @media (min-width: 768px) {
@@ -127,16 +85,9 @@
 --------------------------------------------- */
 
 .question-title {
-    background-color: #f2e6ea;
-    width: 10rem;
-    height: 10rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-size: 1.5rem;
     font-weight: 700;
     line-height: 1.25;
-    color: #3a0f1b;
 }
 
 @media (min-width: 768px) {

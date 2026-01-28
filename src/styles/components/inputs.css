@@ -20,40 +20,30 @@
    ============================================ */
 
 .input {
-  width: 100%;
-  padding: 1rem 1.25rem;
-  font-size: 1rem;
-  font-family: inherit;
-  color: var(--input-text);
-
-  background: var(--input-bg);
-  border: 1px solid var(--input-border);
-  border-radius: var(--radius-lg);
-
-  outline: none;
-
-  box-shadow:
-    inset 2px 2px 6px rgba(0, 0, 0, 0.15),
-    inset -2px -2px 6px rgba(255, 255, 255, 0.6);
-
-  transition: all var(--transition-normal);
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: #ffffff;
+    border: 2px solid var(--border);
+    border-radius: var(--radius-lg);
+    color: black;
+    font-size: 1rem;
+    transition: all var(--transition-normal);
 }
 
 .input::placeholder {
-  color: var(--input-placeholder);
+    color: rgba(0, 0, 0, 0.4);
 }
 
 .input:focus {
-  border-color: var(--input-focus);
-  box-shadow:
-    inset 2px 2px 6px rgba(0, 0, 0, 0.12),
-    inset -2px -2px 6px rgba(255, 255, 255, 0.6),
-    0 0 0 2px rgba(255, 179, 199, 0.35);
+    outline: none;
+    border-color: var(--color-blue);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
 }
 
 .input:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
 /* ============================================
@@ -61,72 +51,53 @@
    ============================================ */
 
 .join-pin-input {
-  width: 100%;
-  padding: 1rem;
-  text-align: center;
-
-  font-size: 1.5rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-
-  color: var(--input-text);
-  background: var(--input-bg);
-
-  border: 1px solid var(--input-border);
-  border-radius: var(--radius-lg);
-
-  box-shadow:
-    inset 3px 3px 8px rgba(0, 0, 0, 0.18),
-    inset -3px -3px 8px rgba(255, 255, 255, 0.6);
-
-  transition: all var(--transition-normal);
+    width: 100%;
+    padding: 1rem 1rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    border-top: 3px solid rgb(191, 125, 127);
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    border-radius: var(--radius-lg);
+    background-color: floralwhite;
+    color: black;
+    transition: all var(--transition-normal);
 }
 
 .join-pin-input::placeholder {
-  color: var(--input-placeholder);
+    color: rgba(0, 0, 0, 0.3);
 }
 
 .join-pin-input:focus {
-  outline: none;
-  border-color: var(--input-focus);
-  box-shadow:
-    inset 3px 3px 8px rgba(0, 0, 0, 0.15),
-    inset -3px -3px 8px rgba(255, 255, 255, 0.6),
-    0 0 0 3px rgba(255, 179, 199, 0.35);
+    outline: none;
+    border: 3px solid rgb(248, 90, 95);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
 }
 
 .join-nickname-input {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  text-align: center;
-
-  font-size: 1.125rem;
-  font-weight: 500;
-
-  color: var(--input-text);
-  background: var(--input-bg);
-
-  border: 1px solid var(--input-border);
-  border-radius: var(--radius-lg);
-
-  box-shadow:
-    inset 2px 2px 6px rgba(0, 0, 0, 0.15),
-    inset -2px -2px 6px rgba(255, 255, 255, 0.6);
-
-  transition: all var(--transition-normal);
+    width: 100%;
+    padding: 0.75rem 1rem;
+    text-align: center;
+    font-size: 1.125rem;
+    font-weight: 500;
+    border: 3px solid rgb(248, 90, 95);
+    border-radius: var(--radius-lg);
+    background-color: floralwhite;
+    color: black;
+    transition: all var(--transition-normal);
 }
 
 .join-nickname-input::placeholder {
-  color: var(--input-placeholder);
+    color: rgba(0, 0, 0, 0.3);
 }
 
 .join-nickname-input:focus {
-  outline: none;
-  border-color: var(--input-focus);
-  box-shadow:
-    inset 2px 2px 6px rgba(0, 0, 0, 0.12),
-    inset -2px -2px 6px rgba(255, 255, 255, 0.6),
-    0 0 0 2px rgba(255, 179, 199, 0.35);
+    outline: none;
+    border-color: var(--color-green);
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
 }
 
 /* ============================================
@@ -134,102 +105,58 @@
    ============================================ */
 
 .create-input-field {
-  width: 100%;
-  padding: 1rem 1.25rem;
-  font-size: 0.9rem;
-  font-family: inherit;
-  color: var(--input-text);
-
-  background: var(--input-bg);
-  border: 1px solid var(--input-border);
-  border-radius: var(--radius-lg);
-
-  outline: none;
-
-  box-shadow:
-    inset 2px 2px 6px rgba(0, 0, 0, 0.15),
-    inset -2px -2px 6px rgba(255, 255, 255, 0.6);
-
-  transition: all var(--transition-normal);
+    font-size: 1.125rem;
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    background-color: white;
+    border-top: 3px solid rgb(191, 125, 127);
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
 }
 
-.create-input-field:focus {
-  border-color: var(--input-focus);
-  box-shadow:
-    inset 2px 2px 6px rgba(0, 0, 0, 0.12),
-    inset -2px -2px 6px rgba(255, 255, 255, 0.6),
-    0 0 0 2px rgba(255, 179, 199, 0.35);
-}
-
-.create-question-input:focus {
-  border-color: var(--input-focus);
-  box-shadow:
-    inset 2px 2px 6px rgba(0, 0, 0, 0.12),
-    inset -2px -2px 6px rgba(255, 255, 255, 0.6),
-    0 0 0 2px rgba(255, 179, 199, 0.35);
+.create-input-field::placeholder {
+    color: rgba(0, 0, 0, 0.6);
 }
 
 .create-question-input {
-  width: 100%;
-  padding: 1rem 1.25rem;
-  font-size: 0.9rem;
-  font-family: inherit;
-  color: var(--input-text);
-
-  background: var(--input-bg);
-  border: 1px solid var(--input-border);
-  border-radius: var(--radius-lg);
-
-  outline: none;
-
-  box-shadow:
-    inset 2px 2px 6px rgba(0, 0, 0, 0.15),
-    inset -2px -2px 6px rgba(255, 255, 255, 0.6);
-
-  transition: all var(--transition-normal);
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    background-color: #ebf6ff;
+    border-top: 2px solid rgb(191, 125, 127);
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
 }
 
 .create-option-input {
-  flex: 1;
-  background: var(--input-bg);
-  color: var(--input-text);
-  border: 1px solid var(--input-border);
-
-  box-shadow:
-    inset 2px 2px 6px rgba(0, 0, 0, 0.15),
-    inset -2px -2px 6px rgba(255, 255, 255, 0.6);
+    background-color: #ebf6ff;
+    border-top: 3px solid rgb(191, 125, 127);
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    color: black;
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
 }
 
 .create-option-input::placeholder {
-  color: var(--input-placeholder);
+    color: rgba(0, 0, 0, 0.4);
 }
 
 .create-time-input {
-  width: 5rem;
-  padding: 1rem 1.25rem;
-  font-size: 1rem;
-  font-family: inherit;
-  color: var(--input-text);
-
-  background: var(--input-bg);
-  border: 1px solid var(--input-border);
-  border-radius: var(--radius-lg);
-
-  outline: none;
-
-  box-shadow:
-    inset 2px 2px 6px rgba(0, 0, 0, 0.15),
-    inset -2px -2px 6px rgba(255, 255, 255, 0.6);
-
-  transition: all var(--transition-normal);
-}
-
-.create-time-input:focus {
-  border-color: var(--input-focus);
-  box-shadow:
-    inset 2px 2px 6px rgba(0, 0, 0, 0.12),
-    inset -2px -2px 6px rgba(255, 255, 255, 0.6),
-    0 0 0 2px rgba(255, 179, 199, 0.35);
+    width: 5rem;
+    text-align: center;
+    padding: 0.75rem 1rem;
+    background-color: #ebf6ff;
+    border-top: 2px solid rgb(191, 125, 127);
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0.75rem;
 }
 
 /* ============================================
@@ -237,29 +164,21 @@
    ============================================ */
 
 .quiz-detail-time-input {
-  width: 4rem;
-  padding: 0.5rem;
-  text-align: center;
-
-  font-size: 0.875rem;
-  font-weight: 500;
-
-  color: var(--input-text);
-  background: var(--input-bg);
-
-  border: 1px solid var(--input-border);
-  border-radius: var(--radius-md);
-
-  box-shadow:
-    inset 2px 2px 6px rgba(0, 0, 0, 0.15),
-    inset -2px -2px 6px rgba(255, 255, 255, 0.6);
-
-  transition: all var(--transition-normal);
+    width: 4rem;
+    padding: 0.5rem;
+    text-align: center;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    border-radius: var(--radius-md);
+    background-color: white;
+    color: black;
+    font-weight: 500;
+    font-size: 0.875rem;
+    transition: all var(--transition-normal);
 }
 
 .quiz-detail-time-input:focus {
-  outline: none;
-  border-color: var(--input-focus);
+    outline: none;
+    border-color: black;
 }
 
 /* ============================================
@@ -267,13 +186,29 @@
    ============================================ */
 
 .label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #e6c7cf;
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--muted-foreground);
 }
 
 .form-group {
-  margin-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.edit-input {
+    font-size: 1.125rem;
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    background-color: #ebf6ff;
+}
+
+.edit-textarea {
+    font-size: 1.125rem;
+    flex: 1;
+    padding: 0.5rem;
+    border-radius: 0.75rem;
+    background-color: #ebf6ff;
 }
