@@ -4,514 +4,514 @@
 
 /* Base Button Styles */
 .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  border-radius: var(--radius-lg);
-  font-size: 1rem;
-  font-weight: 600;
-  line-height: 1.25;
-  text-align: center;
-  cursor: pointer;
-  border: 2px solid transparent;
-  outline: none;
-  transition: all var(--transition-normal);
-  position: relative;
-  overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-lg);
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.25;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid transparent;
+    outline: none;
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
 }
 
 .btn:focus-visible {
-  outline: 2px solid var(--primary);
-  outline-offset: 2px;
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
 }
 
 .btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  pointer-events: none;
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
 }
 
 /* Button with ripple effect on click */
 .btn:active:not(:disabled) {
-  transform: scale(0.98);
+    transform: scale(0.98);
 }
 
 /* Primary Button */
 .btn-primary {
-  background-color: var(--primary);
-  color: var(--primary-foreground);
-  border-color: var(--primary);
-  box-shadow: var(--shadow-md);
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    border-color: var(--primary);
+    box-shadow: var(--shadow-md);
 }
 
 .btn-primary:hover:not(:disabled) {
-  background-color: rgba(0, 0, 0, 0.85);
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-1px);
+    background-color: rgba(0, 0, 0, 0.85);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-1px);
 }
 
 .btn-primary:active:not(:disabled) {
-  transform: translateY(0) scale(0.98);
-  box-shadow: var(--shadow-sm);
+    transform: translateY(0) scale(0.98);
+    box-shadow: var(--shadow-sm);
 }
 
 /* Secondary Button */
 .btn-secondary {
-  background-color: var(--secondary);
-  color: var(--secondary-foreground);
-  border-color: var(--border);
-  box-shadow: var(--shadow-sm);
+    background-color: var(--secondary);
+    color: var(--secondary-foreground);
+    border-color: var(--border);
+    box-shadow: var(--shadow-sm);
 }
 
 .btn-secondary:hover:not(:disabled) {
-  background-color: rgba(0, 0, 0, 0.05);
-  box-shadow: var(--shadow-md);
+    background-color: rgba(0, 0, 0, 0.05);
+    box-shadow: var(--shadow-md);
 }
 
 /* Outline Button */
 .btn-outline {
-  background-color: transparent;
-  border: 2px solid var(--border);
-  color: var(--foreground);
+    background-color: transparent;
+    border: 2px solid var(--border);
+    color: var(--foreground);
 }
 
 .btn-outline:hover:not(:disabled) {
-  background-color: var(--primary);
-  color: var(--primary-foreground);
-  border-color: var(--primary);
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    border-color: var(--primary);
 }
 
 /* Ghost Button */
 .btn-ghost {
-  background-color: transparent;
-  border-color: transparent;
-  color: var(--foreground);
+    background-color: transparent;
+    border-color: transparent;
+    color: var(--foreground);
 }
 
 .btn-ghost:hover:not(:disabled) {
-  background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 /* Button Sizes */
 .btn-sm {
-  padding: 0.5rem 1rem;
-  font-size: 0.875rem;
-  border-radius: var(--radius-md);
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    border-radius: var(--radius-md);
 }
 
 .btn-lg {
-  padding: 1rem 2rem;
-  font-size: 1.125rem;
-  border-radius: var(--radius-lg);
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+    border-radius: var(--radius-lg);
 }
 
 /* Specific Button Variants */
 .btn-signin {
-  width: 100%;
-  padding: 0.875rem 1.5rem;
-  background-color: #075985;
-  color: white;
-  font-weight: 700;
-  border-radius: var(--radius-lg);
-  border: none;
-  box-shadow: var(--shadow-md);
+    margin-top: 1rem;
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+    background-color: rgba(53, 106, 160, 1);
+    color: white;
+    font-weight: 700;
+    border-radius: var(--radius-lg);
+    border: none;
+    box-shadow: var(--shadow-md);
 }
 
 .btn-signin:hover:not(:disabled) {
-  background-color: #0c4a6e;
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-2px);
+    background-color: rgba(53, 106, 160, 0.9);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
 }
 
 .btn-signin:active:not(:disabled) {
-  transform: translateY(0);
+    transform: translateY(0);
 }
 
 .btn-signin:disabled {
-  background-color: #7ea9bc;
+    background-color: rgba(53, 106, 160, 0.5);
 }
 
 .btn-signup {
-  width: 100%;
-  padding: 0.875rem 1.5rem;
-  background-color: #075985;
-  color: white;
-  font-weight: 700;
-  border-radius: var(--radius-lg);
-  border: none;
-  box-shadow: var(--shadow-md);
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+    background-color: var(--color-green);
+    color: white;
+    font-weight: 700;
+    border-radius: var(--radius-lg);
+    border: none;
+    box-shadow: var(--shadow-md);
 }
 
 .btn-signup:hover:not(:disabled) {
-  background-color: #0c4a6e;
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-2px);
+    background-color: var(--color-green-hover);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
 }
 
 .btn-signup:active:not(:disabled) {
-  transform: translateY(0);
+    transform: translateY(0);
 }
 
 .btn-signup:disabled {
-  background-color: #7ea9bc;
+    background-color: var(--color-green-light);
 }
 
 .btn-google {
-  width: 100%;
-  max-width: 320px;
-  padding: 0.875rem 1.5rem;
-  border: none;
-  color: white;
-  font-weight: 700;
-  border-radius: var(--radius-lg);
-  background-color: #075985;
-  box-shadow: var(--shadow-sm);
+    width: 100%;
+    max-width: 320px;
+    padding: 0.875rem 1.5rem;
+    color: white;
+    font-weight: 500;
+    border-radius: var(--radius-lg);
+    background-color: rgba(53, 106, 160, 1);
+    box-shadow: var(--shadow-sm);
+    border: 2px solid white;
 }
 
 .btn-google:hover:not(:disabled) {
-  background-color: #0c4a6e;
-  box-shadow: var(--shadow-md);
-  transform: translateY(-1px);
+    background-color: rgba(53, 106, 160, 0.8);
+    box-shadow: var(--shadow-md);
+    border: 2px solid #ffffff;
+    transform: translateY(-1px);
 }
 
 .btn-google:active:not(:disabled) {
-  transform: translateY(0);
+    transform: translateY(0);
 }
 
 .btn-google:disabled {
-  opacity: 0.5;
+    opacity: 0.5;
 }
 
 /* Home Page Buttons */
 .home-button {
-  width: 100%;
-  padding: 1rem 1.5rem;
-  font-size: 1.125rem;
-  font-weight: 700;
-  border-radius: var(--radius-lg);
-  cursor: pointer;
-  transition: all var(--transition-normal);
-  border: 2px solid #082f49;
-  position: relative;
-  overflow: hidden;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    border: 2px solid #d8d8dd;
+    position: relative;
+    overflow: hidden;
 }
 
 .home-button::before {
-  color: #082f49;
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s ease;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
 }
 
 .home-button:hover::before {
-  left: 100%;
+    left: 100%;
 }
 
 .home-button-outline {
-  background-color: white;
-  color: #082f49;
-  border: 2px solid #082f49;
-  box-shadow: var(--shadow-md);
+    background-color: rgba(53, 106, 160, 1);
+    color: #ecfaff;
+    box-shadow: var(--shadow-md);
 }
 
 .home-button-outline:hover {
-  background-color: #082f49;
-  color: white;
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+    background-color: rgba(53, 106, 160, 0.7);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
 }
 
 .home-button-outline:active {
-  transform: translateY(0);
+    transform: translateY(0);
 }
 
 .home-button-filled {
-  background-color: #082f49;
-  color: white;
-  box-shadow: var(--shadow-md);
+    background-color: rgb(73, 139, 213);
+    color: white;
+    box-shadow: var(--shadow-md);
 }
 
 .home-button-filled:hover {
-  background-color: #0c4a6e;
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+    background-color: rgba(73, 139, 213, 0.7);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
 }
 
 .home-button-filled:active {
-  transform: translateY(0);
+    transform: translateY(0);
 }
 
 .home-signout-button {
-  background-color: transparent;
-  color: #082f49;
+    background-color: rgb(40, 137, 244);
+    color: #eae8e8;
 }
 
 .home-signout-button:hover {
-  background-color: #e4e4e7;
+    background-color: rgba(255, 0, 0, 0.5);
+
 }
 
 /* Join Page Buttons */
 .join-page-signin-button {
-  padding: 0.875rem 2rem;
-  background-color: #082f49;
-  color: white;
-  font-weight: 700;
-  border-radius: var(--radius-lg);
-  border: none;
-  cursor: pointer;
-  transition: all var(--transition-normal);
-  box-shadow: var(--shadow-md);
+    padding: 0.875rem 2rem;
+    background-color: var(--color-blue);
+    color: white;
+    font-weight: 700;
+    border-radius: var(--radius-lg);
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-md);
 }
 
 .join-page-signin-button:hover {
-  background-color: #0c4a6e;
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+    background-color: var(--color-blue-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
 }
 
 .join-page-signin-button:active {
-  transform: translateY(0);
+    transform: translateY(0);
 }
 
 .join-find-button {
-  width: 100%;
-  padding: 1rem 1.5rem;
-  background-color: #082f49;
-  color: white;
-  font-size: 1.125rem;
-  font-weight: 700;
-  border-radius: var(--radius-lg);
-  border: none;
-  cursor: pointer;
-  transition: all var(--transition-normal);
-  box-shadow: var(--shadow-md);
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background-color: rgba(53, 106, 160, 1);
+    color: white;
+    font-size: 1.125rem;
+    font-weight: 700;
+    border-radius: var(--radius-lg);
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-md);
 }
 
 .join-find-button:hover:not(:disabled) {
-  background-color: #0c4a6e;
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+    background-color: rgba(53, 106, 160, 0.7);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
 }
 
 .join-find-button:active:not(:disabled) {
-  transform: translateY(0);
+    transform: translateY(0);
 }
 
 .join-find-button:disabled {
-  background-color: #7ea9bc;
-  opacity: 0.5;
-  cursor: not-allowed;
+    background-color: rgba(53, 106, 160, 0.6);
+    cursor: not-allowed;
 }
 
 .join-back-button {
-  flex: 1;
-  padding: 0.875rem 1rem;
-  border: 2px solid #082f49;
-  color: #082f49;
-  font-weight: 700;
-  border-radius: var(--radius-lg);
-  background-color: transparent;
-  cursor: pointer;
-  transition: all var(--transition-normal);
+    flex: 1;
+    padding: 0.875rem 1rem;
+    border: none;
+    color: black;
+    border-radius: var(--radius-lg);
+    background-color: #56b3ff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-normal);
 }
 
 .join-back-button:hover {
-  background-color: #e4e4e7;
-  transform: translateY(-1px);
+    transform: scale(1.05) translateX(-4px);
 }
 
 .join-back-button:active {
-  transform: translateY(0);
+    transform: translateY(0);
 }
 
 .join-join-button {
-  flex: 1;
-  padding: 0.875rem 1rem;
-  background-color: #075985;
-  color: white;
-  font-weight: 700;
-  border-radius: var(--radius-lg);
-  border: none;
-  cursor: pointer;
-  transition: all var(--transition-normal);
-  box-shadow: var(--shadow-md);
+    flex: 1;
+    padding: 0.875rem 1rem;
+    background-color: var(--color-green);
+    color: white;
+    font-weight: 700;
+    border-radius: var(--radius-lg);
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-md);
 }
 
 .join-join-button:hover:not(:disabled) {
-  background-color: #082f49;
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+    background-color: var(--color-green-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
 }
 
 .join-join-button:active:not(:disabled) {
-  transform: translateY(0);
+    transform: translateY(0);
 }
 
 .join-join-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 
 /* Game Error Button */
 .game-error-button {
-  padding: 0.625rem 1.25rem;
-  background-color: #075985;
-  color: white;
-  border-radius: var(--radius-md);
-  border: none;
-  cursor: pointer;
-  font-weight: 600;
-  transition: all var(--transition-normal);
-  box-shadow: var(--shadow-sm);
+    padding: 0.625rem 1.25rem;
+    background-color: black;
+    color: white;
+    border-radius: var(--radius-md);
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-sm);
 }
 
 .game-error-button:hover {
-  background-color: #082f49;
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
+    background-color: rgba(0, 0, 0, 0.85);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
 }
 
 .game-error-button:active {
-  transform: translateY(0);
+    transform: translateY(0);
 }
 
 /* Host Control Buttons */
 
 .host-control-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.875rem 1.75rem;
-  background-color: #075985;
-  color: white;
-  border: none;
-  outline: none;
-  font-weight: 700;
-  border-radius: var(--radius-lg);
-  cursor: pointer;
-  transition: all var(--transition-normal);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    background-color: rgba(53, 106, 160, 1);
+    color: white;
+    border: none;
+    font-weight: 700;
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-sm);
 }
 
 .host-control-button:hover:not(:disabled) {
-  background-color: #082f49;
-  color: white;
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+    background-color: rgba(53, 106, 160, 0.6);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
 }
 
 .host-control-button:active:not(:disabled) {
-  transform: translateY(0);
+    transform: translateY(0);
 }
 
 .host-control-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 
 .host-create-button {
-  width: 100%;
-  padding: 1rem 1.5rem;
-  font-size: 1.125rem;
-  font-weight: 700;
-  border-radius: var(--radius-lg);
-  background-color: #075985;
-  color: white;
-  border: none;
-  cursor: pointer;
-  transition: all var(--transition-normal);
-  box-shadow: var(--shadow-md);
+    width: 100%;
+    padding: 1rem 1.5rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    border-radius: var(--radius-lg);
+    background-color: rgba(53, 106, 160, 1);
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-md);
 }
 
 .host-create-button:hover:not(:disabled) {
-  background-color: #082f49;
-  border-color: var(--color-blue-hover);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+    background-color: rgba(53, 106, 160, 0.6);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
 }
 
 .host-create-button:active:not(:disabled) {
-  transform: translateY(0);
+    transform: translateY(0);
 }
 
 .host-create-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 
 .host-start-button {
-  flex: 1;
-  font-size: 1.125rem;
-  padding: 1rem 1.5rem;
-  background-color: #075985;
-  color: white;
-  border-radius: 8px;
-  border: none;
+    flex: 1;
+    font-size: 1.125rem;
+    padding: 1rem 1.5rem;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+    font-weight: 700;
+    background-color: rgba(53, 106, 160, 0.9);
+    color: white;
+    border: 1px solid white;
+    border-radius: var(--radius-lg);
+    cursor: pointer;
 
-  transition: all var(--transition-normal);
-  font-weight: 700;
 }
 
 .host-start-button:hover:not(:disabled) {
-  transform: translateY(-2px);
-  background-color: #082f49;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    background-color: rgba(53, 106, 160, 0.7);
 }
 
 .host-start-button:active:not(:disabled) {
-  transform: scale(0.98) translateY(0);
+    transform: scale(0.98) translateY(0);
 }
 
 .host-back-button {
-  background-color: #075985;
-  padding: 12.5px 0px;
-  border: none;
-  color: white;
-  font-weight: 700;
-  font-size: 16px;
-  border-radius: 8px;
-  width: 100%;
-  transition: all var(--transition-normal);
+    margin-top: 10%;
+    padding: 0.875rem 1rem;
+    color: white;
+    background-color: rgba(53, 106, 160, 1);
+    backdrop-filter: blur(4px);
+    border-radius: var(--radius-lg);
+    border: none;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-size: 1.15rem !important;
+    width: 100%;
+    transition: all var(--transition-normal);
 }
 
-.host-back-button:hover:not(:disabled) {
-  transform: translateY(-2px);
-  background-color: #082f49;
-}
-
-.host-back-button:active:not(:disabled) {
-  transform: scale(0.98) translateY(0);
-  
+.host-back-button:hover {
+    background-color: rgba(53, 106, 160, 0.7);
+    transform: translateY(-2px);
 }
 
 /* Delete Buttons */
 .quiz-card-delete-button,
-.quiz-detail-delete-button,
-.create-question-remove-button {
-  background-color: white;
-  color: var(--color-red);
-  border: 2px solid var(--color-red);
-  transition: all var(--transition-normal);
-  font-weight: 600;
+.quiz-detail-delete-button {
+    background-color: rgba(227, 140, 10, 0.23);
+    border: 1px solid #e5f8ff;
+    transition: all var(--transition-normal);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-weight: 450;
+    font-size: 1rem;
+    border-radius: var(--radius-lg);
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
 }
 
 .quiz-card-delete-button:hover,
-.quiz-detail-delete-button:hover,
-.create-question-remove-button:hover {
-  background-color: var(--color-red);
-  color: white;
-  border-color: var(--color-red);
-  transform: translateY(-1px);
+.quiz-detail-delete-button:hover {
+    background-color: var(--color-red);
+    color: white;
+    border-color: var(--color-red);
+    transform: translateY(-1px);
 }
 
 .quiz-card-delete-button:active,
 .quiz-detail-delete-button:active {
-  transform: translateY(0);
+    transform: translateY(0);
 }
 
 /* Create Quiz Buttons */
@@ -519,215 +519,192 @@
 
 /* Create Quiz Buttons */
 .create-add-button {
-  width: 100%;
-  background-color: #075985;
-  border-radius: 8px;
-  border: none;
-  color: white;
-  padding: 0.875rem 1.5rem;
-  font-weight: 700;
-  transition: all var(--transition-normal);
-}
-.create-add-button:hover:not(:disabled){
-  background-color: #082f49;
-  transform: translateY(-1px);
+    background: none;
+    border: none;
+    color: rgba(53, 106, 160, 1);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-weight: 450;
+    font-size: 0.9rem;
+    cursor: pointer;
 }
 .create-cancel-button {
-  flex: 1;
+    flex: 1;
 }
 
 .create-cancel-button-inner {
-  width: 100%;
-  background-color: #991b1b;
-  border-radius: 8px;
-  border: none;
-  color: white;
-  padding: 0.875rem 1.5rem;
-  font-weight: 700;
-  transition: all var(--transition-normal);
+    width: 100%;
+    padding: 1rem 1.5rem;
+    font-weight: 500;
+    border-radius: 0.75rem;
+    transition: all var(--transition-normal);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-size: 1.25rem;
+    border: none;
 }
-.create-cancel-button-inner:hover:not(:disabled){
-  transform: translateY(-1px);
-  background-color: #7f1d1d;
+
+.create-cancel-button-inner:hover {
+    background-color: var(--color-red);
+    transform: translateY(-2px) scale(1.01);
+    color: white;
 }
 .create-submit-button {
-  flex: 1;
-  background-color: #047857;
-  border-radius: 8px;
-  border: none;
-  color: white;
-  padding: 0.875rem 1.5rem;
-  font-weight: 700;
-  transition: all var(--transition-normal);
-}
-.create-submit-button:hover:not(:disabled){
-  
-  background-color: #064e3b;
-  transform: translateY(-1px);
-  
+    flex: 1;
 }
 
-/* Manage Quizzes Button */
+/* New Additions*/
 
-.quizzes-back-button{
-  background-color: transparent;
-  padding: 0.875rem 1.5rem;
-  color: #082f49;
-  font-size: 13px;
-  border: 2px solid #082f49;
-  font-weight: 700;
-  border-radius: var(--radius-lg);
-  cursor: pointer;
-  transition: all var(--transition-normal);
-
+.card-btn {
+    border: 1px solid #e5f8ff;
+    background-color: rgba(67, 132, 253, 0.25);
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-lg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-weight: 450;
+    transition: 0.4s ease;
+    font-size: 1rem;
 }
 
-.quizzes-back-button:hover:not(:disabled){
-  transform: translateY(-1px);
-  background-color: #082f49;
-  color: white;
-
-}
-.quizzes-create-quiz-button{
-  color: white;
-  padding: 0.900rem 1.5rem;
-  background-color: #075985;
-  font-size: 13px;
-  border:none;
-  font-weight: 700;
-  border-radius: var(--radius-lg);
-  cursor: pointer;
-  transition: all var(--transition-normal);
-
+.card-btn:hover {
+    background-color: rgba(81, 163, 246, 0.5);
+    transform: scale(1.01) translateY(-1px);
 }
 
-.quizzes-create-quiz-button:hover:not(:disabled){
-  transform: translateY(-1px);
-  background-color: #082f49;
-  
-  
+.detail-btn {
+    border: 1px solid #e5f8ff;
+    background-color: rgba(227, 61, 10, 0.23);
+    padding: 0.5rem 0.5rem;
+    border-radius: var(--radius-lg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-weight: 450;
+    transition: 0.4s ease;
+    font-size: 1rem;
 }
 
-/* Manage Quiz > quiz-card-actions buttons */
-
-.quiz-card-actions button{
-  padding: 0.500rem 1.5rem;
-  color: #082f49;
-  font-size: 13px;
-  border: 2px solid #082f49;
-  font-weight: 700;
-  border-radius: var(--radius-lg);
-  cursor: pointer;
-  transition: all var(--transition-normal);
-
-
-}
-.quiz-card-edit-button:hover:not(:disabled){
-  transform: translateY(-1px);
-  background-color: #082f49;
-  color: white;
-}
-.quiz-card-host-button:hover:not(:disabled){
-  transform: translateY(-1px);
-  background-color: #0369a1;
-  color: white;
+.detail-btn:hover {
+    background-color: var(--color-green);
+    transform: scale(1.01) translateY(-1px);
 }
 
-
-/* Manage Quiz > edit > quiz-detail-button-group buttons */
-
-
-.quiz-detail-button-group button {
-  padding: 0.500rem 1.5rem;
-  color: #082f49;
-  font-size: 13px;
-  border: 2px solid #082f49;
-  font-weight: 700;
-  border-radius: var(--radius-lg);
-  cursor: pointer;
-  transition: all var(--transition-normal);
-
-
-}
-.quiz-detail-back-button:hover:not(:disabled){
-  background-color: #082f49;
-  color: white;
-  transform: translateY(-1px);
-
-}
-.quiz-detail-host-button:hover:not(:disabled){
-  transform: translateY(-1px);
-  background-color: #0369a1;
-  color: white;
-
+.create-card-btn {
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+    font-weight: 400;
+    border-radius: 0.75rem;
+    background-color: rgba(53, 106, 160, 1);
+    border: none;
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-size: 20px;
+    transition: 0.4s ease;
 }
 
-/* quiz edit cancel and save buttons */
-
-.quiz-edit-save-button{
-  background-color: transparent;
-  padding: 2px 5px;
-  margin-top: 6px;
-  color: #082f49;
-  border: 2px solid #082f49;
-  border-radius: var(--radius-sm);
-  margin-right: 7.5px;
-
+.save-changes-btn {
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+    font-weight: 400;
+    border-radius: 0.75rem;
+    background-color: rgba(53, 106, 160, 1);
+    border: none;
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-size: 20px;
+    transition: 0.4s ease;
+    margin-top: 10%;
 }
 
-.quiz-edit-save-button:hover:not(:disabled){
-  color: white;
-  background-color: #075985;
-  border: 2px solid #075985;
-
-
-}
-.quiz-edit-cancel-button{
-  background-color: transparent;
-  padding: 2px 5px;
-  margin-top: 6px;
-  color: #082f49;
-  border: 2px solid #082f49;
-  border-radius: var(--radius-sm);
-  
+.save-changes-btn:hover {
+    transform: scale(1.01) translateY(-2px);
 }
 
-.quiz-edit-cancel-button:hover:not(:disabled){
-  color: white;
-  background-color: var(--color-red);
-  border: 2px solid var(--color-red);
-
-
+.back-quizzes-btn {
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+    font-weight: 400;
+    border-radius: 0.75rem;
+    background-color: rgba(53, 106, 160, 1);
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-size: 20px;
+    transition: 0.4s ease;
+    margin-top: 10%;
+    border: 1px solid ghostwhite;
 }
 
-/*  create Quiz > add Question > create-question-remove-button */
-
-.create-question-remove-button{
-  padding: 0.500rem 1.5rem;
-  font-size: 13px;
-  font-weight: 700;
-  border-radius: var(--radius-lg);
-  cursor: pointer;
+.back-quizzes-btn:hover {
+    transform: scale(1.01) translateY(-2px);
+    background-color: rgba(53, 106, 160, 0.7);
 }
 
-/* Generalizing button for all end pages */
-
-.standard-button{
-  
-  padding: 0.950rem 1.5rem;
-  color: #082f49;
-  font-size: 13px;
-  border: 2px solid #082f49;
-  font-weight: 700;
-  border-radius: var(--radius-lg);
-  cursor: pointer;
-  transition: all var(--transition-normal);
-
+.create-card-btn:hover {
+    transform: translateY(-2px) scale(1.01);
+    background-color: rgba(53, 106, 160, 0.5);
+    box-shadow: var(--shadow-lg);
+    color: white;
 }
 
-.standard-button:hover:not(:disabled){
-  
-  background-color: #082f49;
-  color: white;
-  transform: translateY(-2.5px);
+.create-card-btn-new {
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+    font-weight: 400;
+    border-radius: 0.75rem;
+    background-color: rgba(53, 106, 160, 1);
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-size: 20px;
+    transition: 0.4s ease;
+    border: none;
+}
+
+.create-card-btn-new:hover {
+    transform: translateY(-2px) scale(1.01);
+    background-color: rgba(53, 106, 160, 0.7);
+    box-shadow: var(--shadow-lg);
+}
+
+.down-the-button {
+    margin-top: 15%;
+}
+
+.back-btn {
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    background-color: rgba(53, 106, 160, 0.5);
+    border: 1px solid #e5f8ff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: 0.4s ease;
+    color: white;
+}
+
+.back-btn:hover {
+    transform: scale(1.05) translateX(-4px);
+}
+
+.save-text {
+    border: 1px solid #e5f8ff;
+    background-color: rgba(10, 176, 227, 0.23);
+    border-radius: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    color: white;
+    transition: 0.4s ease;
+}
+
+.save-text:hover {
+    background-color: var(--color-green);
+    transform: scale(1.01) translateY(-1px);
+}
+
+.cancel-text {
+    border: 1px solid #e5f8ff;
+    background-color: rgba(10, 176, 227, 0.23);
+    border-radius: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    color: white;
+    transition: 0.4s ease;
+}
+
+.cancel-text:hover {
+    background-color: var(--color-red-hover);
+    transform: scale(1.01) translateY(-1px);
 }

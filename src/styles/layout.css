@@ -3,12 +3,138 @@
    ============================================ */
 
 .app-layout {
-  min-height: 100vh;
-  background-color: white;
-  color: black;
-  width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .app-main {
-  width: 100%;
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 480px;
+    padding: 2rem 1rem;
+}
+
+/* Changes/New Additions */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    background: var(--back-white) fixed;
+    color: var(--foreground);
+}
+
+/* some help in some pages */
+.detail-inline {
+    display: flex;
+    flex-direction: row;
+    gap: 8.5rem;
+}
+
+@media (min-width: 768px) {
+    .detail-inline {
+        display: flex;
+        flex-direction: row;
+        gap: 11rem;
+    }
+}
+
+.pencil-flex {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.save-cancel-layout {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin-top: 0.5rem;
+
+}
+
+.glass-container-host {
+    padding: 1rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.75rem;
+    background-color: rgba(255, 255, 255, 1) !important;
+    color: var(--foreground);
+    box-shadow: 0 8px 16px 0 rgb(0, 0, 0, 0.25);
+}
+
+.glass-container-host-end {
+    padding: 1rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.75rem;
+    background-color: rgba(255, 255, 255, 1) !important;
+    color: var(--foreground);
+    border: none;
+    box-shadow: 0 8px 16px 0 rgb(0, 0, 0, 0.25);
+}
+
+.glass-container-gamepage {
+    padding: 1rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.75rem;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: var(--foreground);
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+}
+
+.centered {
+    text-align: center;
+}
+
+.scrollable-player {
+    max-height: 300px;
+    overflow-y: auto;
+    backdrop-filter: blur(70px);
+    border-radius: 0.75rem;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    padding: 0.5rem 0.5rem 0.75rem 0.75rem;
+}
+
+/* 1. Chrome, Safari, and Edge (Webkit) */
+.scrollable-player::-webkit-scrollbar {
+    width: var(--sb-size);
+    height: var(--sb-size); /* For horizontal scroll */
+}
+
+.scrollable-player::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 10px;
+}
+
+.scrollable-player::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 10px;
+    border: 2px solid transparent; /* Creates "padding" around the thumb */
+    background-clip: content-box; /* Makes the thumb look slimmer */
+}
+
+.scrollable-player::-webkit-scrollbar-thumb:hover {
+    background-color: var(--sb-thumb-hover);
+}
+
+/* 2. Firefox (Standard) */
+@supports (scrollbar-width: thin) {
+    * {
+        scrollbar-width: thin;
+        scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+    }
+}
+
+.glass-container {
+    padding: 1rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.75rem;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: var(--foreground);
 }
