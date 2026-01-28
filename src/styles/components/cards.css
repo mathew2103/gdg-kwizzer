@@ -1,6 +1,22 @@
-/* ============================================
-   CARD COMPONENTS
-   ============================================ */
+/* =========================================================
+   CARD COMPONENTS — GLOBAL STYLES
+   ========================================================= */
+
+:root {
+  --color-muted: #f9fafb;        /* Light background for cards */
+  --color-border: #e5e7eb;       /* Soft border */
+  --color-primary: #5b7484;
+  --color-danger: #b91c1c;
+  --radius-xl: 1rem;             /* Rounded corners */
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 14px 32px rgba(0, 0, 0, 0.25);
+  --transition: 0.3s ease;
+}
+
+/* =========================================================
+   BASE CARD
+   ========================================================= */
 
 .card {
     background-color: var(--muted);
@@ -14,40 +30,78 @@
     box-shadow: var(--shadow-md);
 }
 
-/* Lobby Card */
+/* =========================================================
+   LOBBY CARD
+   ========================================================= */
+
 .lobby-card {
     width: 100%;
     max-width: 28rem;
     text-align: center;
 }
 
-/* Game Results Card */
+.lobby-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+}
+
+/* =========================================================
+   GAME RESULTS CARD
+   ========================================================= */
+
 .game-results-card {
     margin-bottom: 1.5rem;
 }
 
-/* Game Over Card */
+.game-results-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* =========================================================
+   GAME OVER CARD
+   ========================================================= */
+
 .game-over-card {
     margin-bottom: 2rem;
     text-align: center;
 }
 
-/* Host Error Card */
+.game-over-card h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ef4444;
+  margin-bottom: 0.75rem;
+}
+
+/* =========================================================
+   HOST ERROR CARD
+   ========================================================= */
+
 .host-error-card {
     text-align: center;
 }
 
-/* Host Setup Card */
+/* =========================================================
+   HOST SETUP CARD
+   ========================================================= */
+
 .host-setup-card {
     margin-bottom: 2rem;
 }
 
-/* Quiz Empty Card */
+/* =========================================================
+   QUIZZES EMPTY CARD
+   ========================================================= */
+
 .quizzes-empty-card {
     text-align: center;
 }
 
-/* Quiz Detail Error Card */
+/* =========================================================
+   QUIZ DETAIL ERROR CARD
+   ========================================================= */
+
 .quiz-detail-error-card {
     text-align: center;
     max-width: 28rem;
